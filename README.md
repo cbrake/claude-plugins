@@ -1,12 +1,14 @@
 # Claude Code Plugins
 
-A curated collection of Claude Code plugins to enhance your development workflow.
+A curated collection of Claude Code plugins to enhance your development
+workflow.
 
 ## Available Plugins
 
 ### Doc-Driven Coding
 
-A documentation-driven development plugin that helps you plan and implement code changes based on markdown documentation.
+A documentation-driven development plugin that helps you plan and implement code
+changes based on markdown documentation.
 
 **Key Features:**
 
@@ -54,7 +56,8 @@ To get the latest plugin listings and metadata:
 /plugin marketplace update cbrake
 ```
 
-This pulls the latest `marketplace.json` from GitHub, including any new plugins or updated descriptions.
+This pulls the latest `marketplace.json` from GitHub, including any new plugins
+or updated descriptions.
 
 ### Update Plugins
 
@@ -84,8 +87,10 @@ plugin-name/
 
 ### Key Concepts
 
-1. **Command definitions are markdown files** - Each `.md` file in `commands/` becomes a slash command
-2. **Commands are prompts** - The markdown content is given to Claude Code when invoked
+1. **Command definitions are markdown files** - Each `.md` file in `commands/`
+   becomes a slash command
+2. **Commands are prompts** - The markdown content is given to Claude Code when
+   invoked
 3. **Plugin metadata** - The `plugin.json` defines the plugin's identity
 
 See [CLAUDE.md](./CLAUDE.md) for detailed development guidance.
