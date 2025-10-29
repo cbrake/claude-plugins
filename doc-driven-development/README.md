@@ -39,6 +39,17 @@ The command reads all documentation updates and systematically implements the co
 /implement
 ```
 
+### `/update-docs`
+
+Updates documentation to reflect code changes detected by `git diff`. This is the inverse of `/implement` - use it when you've written code and need to update your documentation to match.
+
+The command focuses on user-facing benefits rather than technical implementation details.
+
+**Example:**
+```
+/update-docs
+```
+
 ### `/skip`
 
 Tells Claude to skip the current edit or command and continue with the next task. Useful when you want to bypass a suggested change.
