@@ -10,12 +10,6 @@ workflow.
 A documentation-driven development plugin that helps you plan and implement code
 changes based on markdown documentation.
 
-**Key Features:**
-
-- `/plan` - Create implementation plans based on documentation changes
-- `/implement` - Implement code changes from documentation and plans
-- `/skip` - Skip suggested edits and continue
-
 [View Plugin Documentation](./doc-driven-development/README.md)
 
 ## Installation
