@@ -47,6 +47,32 @@ For local plugin development and testing:
 /plugin install file:///path/to/claude-plugins/doc-driven-development
 ```
 
+## Updating
+
+### Update Marketplace
+
+To get the latest plugin listings and metadata:
+
+```bash
+/plugin marketplace update claude-plugins
+```
+
+This pulls the latest `marketplace.json` from GitHub, including any new plugins or updated descriptions.
+
+### Update Plugins
+
+To update an installed plugin to its latest version:
+
+```bash
+/plugin update doc-driven-coding
+```
+
+To update all installed plugins:
+
+```bash
+/plugin update --all
+```
+
 ## Plugin Development
 
 This repository follows the standard Claude Code plugin structure:

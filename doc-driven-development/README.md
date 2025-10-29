@@ -1,10 +1,10 @@
-# Doc-Driven Coding Plugin
+# Doc-Driven Coding
 
-A Claude Code plugin that implements a documentation-driven development workflow. This plugin helps you plan and implement code changes by using markdown documentation as the source of truth.
+A documentation-driven development plugin for Claude Code. Write your documentation first, then let Claude implement the code to match.
 
 ## Philosophy
 
-In doc-driven development, documentation drives code changes rather than the other way around. You update your documentation first to describe the desired functionality, then implement the code to match the documentation.
+Documentation drives code, not the reverse. Update your markdown files to describe desired functionality, then use this plugin to generate implementation plans and code that match your documentation.
 
 ## Commands
 
@@ -59,47 +59,50 @@ The typical doc-driven workflow:
 
 ## Installation
 
-### Local Testing
+See the [main repository README](https://github.com/cbrake/claude-plugins) for installation instructions.
 
-1. Create a marketplace file at `/scratch/claude/marketplace.json`:
-
-```json
-{
-  "name": "local-marketplace",
-  "plugins": [
-    {
-      "source": "file:///scratch/claude/doc-driven-coding"
-    }
-  ]
-}
-```
-
-2. Add the marketplace to Claude Code:
-```
-/plugin marketplace add /scratch/claude/marketplace.json
-```
-
-3. Install the plugin:
-```
+Quick install:
+```bash
+/plugin marketplace add https://raw.githubusercontent.com/cbrake/claude-plugins/main/marketplace.json
 /plugin install doc-driven-coding
 ```
 
-### Team Installation
-
-1. Commit the plugin to a git repository
-2. Create a marketplace.json pointing to your repository
-3. Share the marketplace with your team
-
 ## Requirements
 
-- Claude Code CLI
-- Git repository (for `git diff` functionality)
-- `plans/` directory in your project (created automatically)
+- Git repository (the plugin uses `git diff` to detect documentation changes)
+- `plans/` directory in your project (created automatically by the plugin)
 
-## License
+## Examples
 
-MIT
+### Example 1: Adding a New Feature
 
-## Author
+1. Update your README.md to describe the new feature:
+```markdown
+## Authentication
+Users can log in using email/password or OAuth providers (Google, GitHub).
+Sessions last 7 days by default.
+```
 
-Cliff Brake (cbrake@bec-systems.com)
+2. Create a plan:
+```bash
+/plan authentication-system
+```
+
+3. Implement the plan:
+```bash
+/implement
+```
+
+### Example 2: Refactoring
+
+1. Update documentation to reflect new architecture
+2. Create a plan: `/plan api-refactor`
+3. Review the plan file in `plans/`
+4. Run `/implement` when ready
+
+## Tips
+
+- Commit documentation changes separately so `git diff` shows only what needs to be implemented
+- Use `/skip` if Claude suggests a change you don't want
+- Review plan files before implementing - they're just markdown files you can edit
+- The `plans/` directory serves as a history of your implementation decisions
