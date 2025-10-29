@@ -9,6 +9,7 @@ A curated collection of Claude Code plugins to enhance your development workflow
 A documentation-driven development plugin that helps you plan and implement code changes based on markdown documentation.
 
 **Key Features:**
+
 - `/plan` - Create implementation plans based on documentation changes
 - `/implement` - Implement code changes from documentation and plans
 - `/skip` - Skip suggested edits and continue
@@ -20,13 +21,15 @@ A documentation-driven development plugin that helps you plan and implement code
 ### From GitHub (Recommended)
 
 1. Add this marketplace to Claude Code:
+
 ```bash
-/plugin marketplace add https://raw.githubusercontent.com/cbrake/claude-plugins/main/marketplace.json
+/plugin marketplace add cbrake/claude-plugins
 ```
 
 2. Install the plugin:
+
 ```bash
-/plugin install doc-driven-development
+/plugin install doc-driven-development@cbrake
 ```
 
 ### Local Development
@@ -35,10 +38,10 @@ For local plugin development and testing, create a local marketplace:
 
 ```bash
 # Add local marketplace
-/plugin marketplace add /path/to/claude-plugins/marketplace.json
+/plugin marketplace add /path/to/claude-plugins
 
 # Install from local marketplace
-/plugin install doc-driven-development
+/plugin install doc-driven-development@cbrake
 ```
 
 ## Updating
@@ -48,7 +51,7 @@ For local plugin development and testing, create a local marketplace:
 To get the latest plugin listings and metadata:
 
 ```bash
-/plugin marketplace update claude-plugins
+/plugin marketplace update cbrake
 ```
 
 This pulls the latest `marketplace.json` from GitHub, including any new plugins or updated descriptions.
@@ -94,7 +97,7 @@ To add a new plugin to this repository:
 1. Create a new directory with your plugin structure
 2. Add plugin metadata in `.claude-plugin/plugin.json`
 3. Define commands in the `commands/` directory
-4. Update `marketplace.json` to include your plugin
+4. Update `.claude-plugin/marketplace.json` to include your plugin
 5. Submit a pull request
 
 ## Requirements
