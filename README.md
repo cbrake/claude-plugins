@@ -64,7 +64,7 @@ or updated descriptions.
 To update an installed plugin to its latest version:
 
 ```bash
-/plugin update doc-driven-development
+/plugin update doc-driven-development (FIXME, this does not work)
 ```
 
 To update all installed plugins:
