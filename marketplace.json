@@ -1,0 +1,11 @@
+{
+  "name": "claude-plugins",
+  "description": "A collection of Claude Code plugins for enhanced development workflows",
+  "plugins": [
+    {
+      "name": "doc-driven-coding",
+      "source": "https://github.com/cbrake/claude-plugins.git/doc-driven-development",
+      "description": "Documentation-driven development workflow for planning and implementing code changes based on markdown documentation"
+    }
+  ]
+}
