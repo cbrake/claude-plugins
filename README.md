@@ -28,7 +28,7 @@ To install plugins from this repository:
 
 2. Install a specific plugin:
 ```bash
-/plugin install doc-driven-coding
+/plugin install doc-driven-development
 ```
 
 ### Manual Installation
@@ -64,7 +64,7 @@ This pulls the latest `marketplace.json` from GitHub, including any new plugins 
 To update an installed plugin to its latest version:
 
 ```bash
-/plugin update doc-driven-coding
+/plugin update doc-driven-development
 ```
 
 To update all installed plugins:

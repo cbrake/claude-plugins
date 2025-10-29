@@ -75,7 +75,7 @@ See the [main repository README](https://github.com/cbrake/claude-plugins) for i
 Quick install:
 ```bash
 /plugin marketplace add https://raw.githubusercontent.com/cbrake/claude-plugins/main/marketplace.json
-/plugin install doc-driven-coding
+/plugin install doc-driven-development
 ```
 
 ## Requirements
