@@ -17,34 +17,28 @@ A documentation-driven development plugin that helps you plan and implement code
 
 ## Installation
 
-### Using this Marketplace
-
-To install plugins from this repository:
+### From GitHub (Recommended)
 
 1. Add this marketplace to Claude Code:
 ```bash
 /plugin marketplace add https://raw.githubusercontent.com/cbrake/claude-plugins/main/marketplace.json
 ```
 
-2. Install a specific plugin:
+2. Install the plugin:
 ```bash
 /plugin install doc-driven-development
 ```
 
-### Manual Installation
-
-To install a plugin directly from GitHub without the marketplace:
-
-```bash
-/plugin install cbrake/claude-plugins/doc-driven-development
-```
-
 ### Local Development
 
-For local plugin development and testing:
+For local plugin development and testing, create a local marketplace:
 
 ```bash
-/plugin install file:///path/to/claude-plugins/doc-driven-development
+# Add local marketplace
+/plugin marketplace add /path/to/claude-plugins/marketplace.json
+
+# Install from local marketplace
+/plugin install doc-driven-development
 ```
 
 ## Updating
