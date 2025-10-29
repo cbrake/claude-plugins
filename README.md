@@ -33,10 +33,10 @@ To install plugins from this repository:
 
 ### Manual Installation
 
-To install a plugin directly without the marketplace:
+To install a plugin directly from GitHub without the marketplace:
 
 ```bash
-/plugin install https://github.com/cbrake/claude-plugins.git/doc-driven-development
+/plugin install cbrake/claude-plugins/doc-driven-development
 ```
 
 ### Local Development
