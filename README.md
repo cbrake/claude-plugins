@@ -1,6 +1,6 @@
 # Claude Code Plugins
 
-A curated collection of Claude Code plugins to enhance your development
+A collection of Claude Code plugins I use to enhance your development
 workflow.
 
 ## Available Plugins
