@@ -3,6 +3,10 @@
 A documentation-driven development plugin for Claude Code. Write your
 documentation first, then let Claude implement the code to match.
 
+The goal is to embed AI in a normal development workflow, not create
+new AI-specific workflows that humans would not use (such as spec-driven
+development).
+
 ## Philosophy
 
 Documentation drives code, not the reverse. Update your markdown files to
