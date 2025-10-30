@@ -22,6 +22,8 @@ doc-driven-development/
 └── commands/
     ├── plan.md              # /plan command definition
     ├── implement.md         # /implement command definition
+    ├── implement-tests.md   # /implement-tests command definition (TDD)
+    ├── update-docs.md       # /update-docs command definition
     └── skip.md              # /skip command definition
 ```
 
