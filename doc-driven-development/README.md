@@ -74,11 +74,15 @@ The typical doc-driven workflow:
 
 1. **Update documentation** - Describe desired functionality in markdown files
 2. **Create a plan** - Run `/plan <feature-name>`
-3. **Implement tests first** - Run `/implement-tests` to create tests based on
+3. **Inspected plan**
+4. **Implement tests first** - Run `/implement-tests` to create tests based on
    documentation
-4. **Run tests** - Verify tests fail as expected
-5. **Implement code** - Run `/implement` to implement the actual functionality
-6. **Verify** - Ensure all tests pass
+5. **Run tests** - Verify tests fail as expected
+6. **Inspect tests**
+7. **Implement code** - Run `/implement` to implement the actual functionality
+8. **Verify** - Ensure all tests pass
+9. **Make sure docs match code** - Run `/update-docs` to make sure the docs are
+   complete and match the code that was implemented
 
 ## Installation
 
@@ -109,6 +113,7 @@ Sessions last 7 days by default.
 ```bash
 /plan authentication-system
 ```
+Inspect plan.
 
 3. Implement the plan:
 
@@ -140,12 +145,15 @@ purposes.
 ```bash
 /plan payment-processing
 ```
+Inspect plan.
 
 3. Implement tests first:
 
 ```bash
 /implement-tests
 ```
+
+Inspect tests.
 
 4. Run tests to verify they fail (red phase)
 
