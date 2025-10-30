@@ -1,5 +1,5 @@
-Implement any code changes described in the documentation (\*.md) changes (git
-diff) and `plans/` directory.
+Implement code changes for features described in the documentation (`*.md`) and `plans/` 
+directory changes -- see changes with `git diff`.
 
 Tests should be implemented before code (TDD).
 
