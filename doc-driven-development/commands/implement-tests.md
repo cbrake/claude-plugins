@@ -1,4 +1,4 @@
-Implement tests for features described in the documentation (*.md) and plans/ directory changes -- see changes with `git diff`.
+Implement tests for features described in the documentation (`*.md`) and `plans/` directory changes -- see changes with `git diff`.
 
 Tests should be implemented before code (TDD).
 
