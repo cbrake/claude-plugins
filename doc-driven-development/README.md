@@ -168,6 +168,12 @@ Inspect tests.
 
 6. Run tests to verify they pass (green phase)
 
+7. Update the docs to accurately reflect implementation
+
+```bash
+/update-docs
+```
+
 ## Tips
 
 - Don't commit documentation or code changes until the feature is complete. The
