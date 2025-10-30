@@ -5,7 +5,7 @@ workflow.
 
 ## Available Plugins
 
-### Doc-Driven Coding
+### Doc-Driven Development
 
 A documentation-driven development plugin that helps you plan and implement code
 changes based on markdown documentation.
