@@ -11,8 +11,7 @@ plans and code that match your documentation.
 
 The byproduct of this workflow is that your documentation:
 
-- Is fairly complete
-- Is up to date
+- Is always fairly complete, up to date, and usable by humans
 - Precedes coding, which helps in the design/thinking process
 - Does not have to be done as an unpleasant afterthought
 
