@@ -15,9 +15,9 @@ plans and code that match your documentation.
 
 The byproduct of this workflow is that your documentation:
 
-- Is always fairly complete, up to date, and usable by humans
-- Precedes coding, which helps in the design/thinking process
-- Does not have to be done as an unpleasant afterthought
+- Is always fairly complete, up to date, and usable by humans.
+- Precedes coding, which helps in the design/thinking process.
+- Does not have to be done as an unpleasant afterthought.
 
 ## Commands
 
@@ -39,10 +39,10 @@ description. The command will:
 Implements tests for features described in the documentation and plans directory
 using Test-Driven Development (TDD). This command:
 
-- Analyzes documentation changes from `git diff` of `*.md` files
-- Reviews plans in the `plans/` directory
-- Creates tests **before** implementing the actual code
-- Follows TDD principles where tests drive the implementation
+- Analyzes documentation changes from `git diff` of `*.md` files.
+- Reviews plans in the `plans/` directory.
+- Creates tests **before** implementing the actual code.
+- Follows TDD principles where tests drive the implementation.
 
 Use this command when you want to follow a strict TDD workflow where tests are
 written first based on the documented requirements.
@@ -63,10 +63,10 @@ The command looks for instruction markers in these formats:
 
 **How it works:**
 
-1. Searches uncommitted changes (from `git diff`) for instruction markers
-2. Executes each instruction or pseudo code as described
-3. Removes the marker tags after successful completion
-4. Updates any uncommitted plan files to reflect what was done
+1. Searches uncommitted changes (from `git diff`) for instruction markers.
+2. Executes each instruction or pseudo code as described.
+3. Removes the marker tags after successful completion.
+4. Updates any uncommitted plan files to reflect what was done.
 
 **Example usage:**
 
@@ -112,19 +112,19 @@ task. Useful when you want to bypass a suggested change.
 
 The typical doc-driven workflow:
 
-1. **Update documentation** - Describe desired functionality in markdown files
-2. **Create a plan** - Run `/plan <feature-name>`
-3. **Inspected plan**
+1. **Update documentation** - Describe desired functionality in markdown files.
+2. **Create a plan** - Run `/plan <feature-name>`.
+3. **Inspected plan**.
 4. **Implement tests first** - Run `/implement-tests` to create tests based on
-   documentation
-5. **Run tests** - Verify tests fail as expected
-6. **Inspect tests**
-7. **Implement code** - Run `/implement` to implement the actual functionality
+   documentation.
+5. **Run tests** - Verify tests fail as expected.
+6. **Inspect tests**.
+7. **Implement code** - Run `/implement` to implement the actual functionality.
    - _Alternative_: For quick, targeted changes, add `@CLAUDE:` markers in code
-     and run `/execute` instead
-8. **Verify** - Ensure all tests pass
+     and run `/execute` instead.
+8. **Verify** - Ensure all tests pass.
 9. **Make sure docs match code** - Run `/update-docs` to make sure the docs are
-   complete and match the code that was implemented
+   complete and match the code that was implemented.
 
 ## Installation
 
@@ -134,8 +134,8 @@ installation instructions.
 ## Requirements
 
 - Git repository (the plugin uses `git diff` to detect documentation and code
-  changes)
-- `plans/` directory in your project (created automatically by the plugin)
+  changes).
+- `plans/` directory in your project (created automatically by the plugin).
 
 ## Examples
 
@@ -166,10 +166,10 @@ Inspect plan.
 
 ### Example 2: Refactoring
 
-1. Update documentation to reflect new architecture
-2. Create a plan: `/plan api-refactor`
-3. Review the plan file in `plans/`
-4. Run `/implement` when ready
+1. Update documentation to reflect new architecture.
+2. Create a plan: `/plan api-refactor`.
+3. Review the plan file in `plans/`.
+4. Run `/implement` when ready.
 
 ### Example 3: Test-Driven Development
 
@@ -199,7 +199,7 @@ Inspect plan.
 
 Inspect tests.
 
-4. Run tests to verify they fail (red phase)
+4. Run tests to verify they fail (red phase).
 
 5. Implement the code:
 
@@ -207,9 +207,9 @@ Inspect tests.
 /implement
 ```
 
-6. Run tests to verify they pass (green phase)
+6. Run tests to verify they pass (green phase).
 
-7. Update the docs to accurately reflect implementation
+7. Update the docs to accurately reflect implementation:
 
 ```bash
 /update-docs
