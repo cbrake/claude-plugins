@@ -103,6 +103,21 @@ your documentation to match.
 The command focuses on user-facing benefits rather than technical implementation
 details.
 
+### `/release [version]`
+
+Automates the release process by:
+
+- Converting the `[Unreleased]` section in CHANGELOG.md to a versioned release with the current date
+- Updating version numbers in all manifest files (e.g., `.claude-plugin/plugin.json`)
+- Creating a git tag for the release
+
+**Usage:**
+
+- `/release` - Auto-increments the patch version (e.g., 1.0.6 → 1.0.7)
+- `/release 2.0.0` - Uses the specified version number
+
+The command does not automatically commit or push changes, allowing you to review before finalizing.
+
 ### `/skip`
 
 Tells Claude to skip the current edit or command and continue with the next
@@ -125,6 +140,8 @@ The typical doc-driven workflow:
 8. **Verify** - Ensure all tests pass.
 9. **Make sure docs match code** - Run `/update-docs` to make sure the docs are
    complete and match the code that was implemented.
+10. **Release** - Run `/release` to create a versioned release with updated
+    changelog and git tag.
 
 ## Installation
 
