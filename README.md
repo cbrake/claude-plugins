@@ -1,7 +1,6 @@
 # Claude Code Plugins
 
-A collection of Claude Code plugins I use to enhance development
-workflows.
+A collection of Claude Code plugins I use to enhance development workflows.
 
 ## Available Plugins
 
@@ -50,22 +49,7 @@ To get the latest plugin listings and metadata:
 /plugin marketplace update cbrake
 ```
 
-This pulls the latest `marketplace.json` from GitHub, including any new plugins
-or updated descriptions.
-
-### Update Plugins
-
-To update an installed plugin to its latest version:
-
-```bash
-/plugin update doc-driven-development (FIXME, this does not work)
-```
-
-To update all installed plugins:
-
-```bash
-/plugin update --all
-```
+This appears to update all the plugins from this marketplace.
 
 ## Plugin Development
 
