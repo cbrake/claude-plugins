@@ -100,6 +100,7 @@ properly.
 
 The `/release` command automates version releases by:
 - Updating the CHANGELOG.md from `[Unreleased]` to the release version
+- Adding a new `[Unreleased]` section for future changes
 - Updating version numbers in manifest files
 - Creating a git tag
 

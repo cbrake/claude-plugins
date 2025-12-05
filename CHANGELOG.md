@@ -1,5 +1,12 @@
 # Changelog
 
+## [Unreleased]
+
+## [1.0.8] - 2025-12-05
+
+### Improved
+- Release command now adds a new `[Unreleased]` section after creating a release.
+
 ## [1.0.7] - 2025-12-05
 
 ### Added
