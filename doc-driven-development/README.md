@@ -3,8 +3,8 @@
 A documentation-driven development plugin for Claude Code. Write your
 documentation first, then let Claude implement the code to match.
 
-The goal is to embed AI in a normal development workflow, not create
-new AI-specific workflows that humans would not use (such as spec-driven
+The goal is to embed AI in a normal development workflow, not create new
+AI-specific workflows that humans would not use (such as spec-driven
 development).
 
 ## Philosophy
@@ -46,6 +46,43 @@ using Test-Driven Development (TDD). This command:
 
 Use this command when you want to follow a strict TDD workflow where tests are
 written first based on the documented requirements.
+
+### `/execute`
+
+Finds and executes inline instructions or pseudo code marked with special tags
+in your code or documentation. This enables surgical, targeted changes without
+needing full documentation rewrites.
+
+The command looks for instruction markers in these formats:
+
+- `@CLAUDE: <instruction>` - Single line instruction
+- `@CLAUDE-START` / `@CLAUDE-END` - Multi-line instruction blocks
+- In code comments: `// @CLAUDE:`, `# @CLAUDE:`, `/* @CLAUDE: */`,
+  `<!-- @CLAUDE: -->`
+- In markdown: Lines starting with `> @CLAUDE:` or within code blocks
+
+**How it works:**
+
+1. Searches uncommitted changes (from `git diff`) for instruction markers
+2. Executes each instruction or pseudo code as described
+3. Removes the marker tags after successful completion
+4. Updates any uncommitted plan files to reflect what was done
+
+**Example usage:**
+
+Add an instruction marker in your code:
+
+```python
+# @CLAUDE: Add error handling for network timeouts
+def fetch_data(url):
+    response = requests.get(url)
+    return response.json()
+```
+
+Run `/execute` to implement the instruction and remove the marker.
+
+Use this command for quick, focused changes like adding error handling,
+refactoring specific functions, or implementing small improvements.
 
 ### `/implement`
 
@@ -116,6 +153,7 @@ Sessions last 7 days by default.
 ```bash
 /plan authentication-system
 ```
+
 Inspect plan.
 
 3. Implement the plan:
@@ -148,6 +186,7 @@ purposes.
 ```bash
 /plan payment-processing
 ```
+
 Inspect plan.
 
 3. Implement tests first:
