@@ -23,6 +23,7 @@ doc-driven-development/
     ├── plan.md              # /plan command definition
     ├── implement.md         # /implement command definition
     ├── implement-tests.md   # /implement-tests command definition (TDD)
+    ├── execute.md           # /execute command definition
     ├── update-docs.md       # /update-docs command definition
     └── skip.md              # /skip command definition
 ```
@@ -55,6 +56,18 @@ The plugin implements a three-phase workflow:
 **Important:** In this workflow, documentation drives code changes, not vice
 versa. When implementing, prioritize what's documented over existing code
 patterns.
+
+### Inline Instructions
+
+The `/execute` command enables surgical code changes via inline markers:
+
+- Insert `@CLAUDE:` tags in code comments or documentation with instructions or
+  pseudo code
+- Run `/execute` to find and implement all marked instructions
+- Markers are automatically removed after execution
+- Uncommitted plans are updated to reflect changes
+
+This allows precise, targeted modifications without full documentation rewrites.
 
 ## Local Plugin Development
 
