@@ -120,6 +120,8 @@ The typical doc-driven workflow:
 5. **Run tests** - Verify tests fail as expected
 6. **Inspect tests**
 7. **Implement code** - Run `/implement` to implement the actual functionality
+   - _Alternative_: For quick, targeted changes, add `@CLAUDE:` markers in code
+     and run `/execute` instead
 8. **Verify** - Ensure all tests pass
 9. **Make sure docs match code** - Run `/update-docs` to make sure the docs are
    complete and match the code that was implemented
