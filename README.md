@@ -41,9 +41,7 @@ For local plugin development and testing, create a local marketplace:
 
 ## Updating
 
-### Update Marketplace
-
-To get the latest plugin listings and metadata:
+To get the latest:
 
 ```bash
 /plugin marketplace update cbrake
