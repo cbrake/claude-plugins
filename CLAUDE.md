@@ -25,6 +25,7 @@ doc-driven-development/
     ├── implement-tests.md   # /implement-tests command definition (TDD)
     ├── execute.md           # /execute command definition
     ├── update-docs.md       # /update-docs command definition
+    ├── release.md           # /release command definition
     └── skip.md              # /skip command definition
 ```
 
@@ -94,3 +95,13 @@ To test plugins locally during development:
 Commands rely on `git diff` to detect documentation changes. The repository must
 be a git repository for the `/plan` and `/implement` commands to function
 properly.
+
+## Release Management
+
+The `/release` command automates version releases by:
+- Updating the CHANGELOG.md from `[Unreleased]` to the release version
+- Updating version numbers in manifest files
+- Creating a git tag
+
+**Manifest files** (updated by `/release`):
+- `.claude-plugin/plugin.json` - Plugin metadata containing `"version"` field

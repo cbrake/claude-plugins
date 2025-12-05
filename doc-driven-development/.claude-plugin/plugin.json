@@ -1,6 +1,6 @@
 {
   "name": "doc-driven-development",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "Documentation-driven development workflow for planning and implementing code changes based on markdown documentation",
   "author": {
     "name": "Cliff Brake",

@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.7] - 2025-12-05
+
+### Added
+- `/release` command to automate version releases with changelog updates and git tagging.
+
 ## [1.0.6] - 2025-12-05
 
 ### Improved
