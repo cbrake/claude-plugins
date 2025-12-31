@@ -1,13 +1,13 @@
-# Doc-Driven Coding
+# Doc-Driven Development
 
 A documentation-driven development plugin for Claude Code. Write your
 documentation first, then let Claude implement the code to match.
 
-![Doc-Driven Development Workflow](doc-driven-workflow.png)
-
 The goal is to embed AI in a normal development workflow, not create new
 AI-specific workflows that humans would not use (such as spec-driven
 development).
+
+![Doc-Driven Development Workflow](doc-driven-workflow.png)
 
 ## Philosophy
 
