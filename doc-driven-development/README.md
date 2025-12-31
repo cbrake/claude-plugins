@@ -3,6 +3,8 @@
 A documentation-driven development plugin for Claude Code. Write your
 documentation first, then let Claude implement the code to match.
 
+![Doc-Driven Development Workflow](doc-driven-workflow.png)
+
 ## Philosophy
 
 Documentation drives code, not the reverse. Update your markdown files to
@@ -113,6 +115,7 @@ Sessions last 7 days by default.
 ```bash
 /plan authentication-system
 ```
+
 Inspect plan.
 
 3. Implement the plan:
@@ -145,6 +148,7 @@ purposes.
 ```bash
 /plan payment-processing
 ```
+
 Inspect plan.
 
 3. Implement tests first:
