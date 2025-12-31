@@ -1,4 +1,4 @@
-# Doc-Driven Development
+# 📝 Doc-Driven Development
 
 A documentation-driven development plugin for Claude Code. Write your
 documentation first, then let Claude implement the code to match.
@@ -9,7 +9,7 @@ development).
 
 ![Doc-Driven Development Workflow](doc-driven-workflow.png)
 
-## Philosophy
+## 💡 Philosophy
 
 Documentation drives code, not the reverse. Update your Markdown files to
 describe desired functionality, then use this plugin to generate implementation
@@ -17,13 +17,13 @@ plans and code that match your documentation.
 
 The byproduct of this workflow is that your documentation:
 
-- Is always fairly complete, up to date, and usable by humans.
-- Precedes coding, which helps in the design/thinking process.
-- Does not have to be done as an unpleasant afterthought.
+- ✅ Is always fairly complete, up to date, and usable by humans.
+- ✅ Precedes coding, which helps in the design/thinking process.
+- ✅ Does not have to be done as an unpleasant afterthought.
 
-## Commands
+## ⚡ Commands
 
-### `/plan <description>`
+### 📋 `/plan <description>`
 
 Creates a plan file in the `plans/` directory with the current date and your
 description. The command will:
@@ -36,7 +36,7 @@ description. The command will:
 5. Generate a detailed implementation plan
 6. Write the plan to the plan file
 
-### `/implement-tests`
+### 🧪 `/implement-tests`
 
 Implements tests for features described in the documentation and plans directory
 using Test-Driven Development (TDD). This command:
@@ -49,7 +49,7 @@ using Test-Driven Development (TDD). This command:
 Use this command when you want to follow a strict TDD workflow where tests are
 written first based on the documented requirements.
 
-### `/execute`
+### 🎯 `/execute`
 
 Finds and executes inline instructions or pseudo code marked with special tags
 in your code or documentation. This enables surgical, targeted changes without
@@ -86,7 +86,7 @@ Run `/execute` to implement the instruction and remove the marker.
 Use this command for quick, focused changes like adding error handling,
 refactoring specific functions, or implementing small improvements.
 
-### `/implement`
+### 🔨 `/implement`
 
 Implements code changes based on:
 
@@ -96,7 +96,7 @@ Implements code changes based on:
 The command reads all documentation updates and systematically implements the
 corresponding code changes.
 
-### `/update-docs`
+### 📄 `/update-docs`
 
 Updates documentation to reflect code changes detected by `git diff`. This is
 the inverse of `/implement` - use it when you've written code and need to update
@@ -105,7 +105,7 @@ your documentation to match.
 The command focuses on user-facing benefits rather than technical implementation
 details.
 
-### `/release [version]`
+### 🏷️ `/release [version]`
 
 Automates the release process by:
 
@@ -123,43 +123,43 @@ Automates the release process by:
 The command does not automatically commit or push changes, allowing you to
 review before finalizing.
 
-### `/skip`
+### ⏭️ `/skip`
 
 Tells Claude to skip the current edit or command and continue with the next
 task. Useful when you want to bypass a suggested change.
 
-## Workflow
+## 🔄 Workflow
 
 The typical doc-driven workflow:
 
-1. **Update documentation** - Describe desired functionality in Markdown files.
-2. **Create a plan** - Run `/plan <feature-name>`.
-3. **Inspected plan**.
-4. **Implement tests first** - Run `/implement-tests` to create tests based on
+1. **📝 Update documentation** - Describe desired functionality in Markdown files.
+2. **📋 Create a plan** - Run `/plan <feature-name>`.
+3. **👀 Inspect plan**.
+4. **🧪 Implement tests first** - Run `/implement-tests` to create tests based on
    documentation.
-5. **Run tests** - Verify tests fail as expected.
-6. **Inspect tests**.
-7. **Implement code** - Run `/implement` to implement the actual functionality.
+5. **🔴 Run tests** - Verify tests fail as expected.
+6. **👀 Inspect tests**.
+7. **🔨 Implement code** - Run `/implement` to implement the actual functionality.
    - _Alternative_: For quick, targeted changes, add `@CLAUDE:` markers in code
      and run `/execute` instead.
-8. **Verify** - Ensure all tests pass.
-9. **Make sure docs match code** - Run `/update-docs` to make sure the docs are
+8. **🟢 Verify** - Ensure all tests pass.
+9. **📄 Make sure docs match code** - Run `/update-docs` to make sure the docs are
    complete and match the code that was implemented.
-10. **Release** - Run `/release` to create a versioned release with updated
+10. **🏷️ Release** - Run `/release` to create a versioned release with updated
     changelog and git tag.
 
-## Installation
+## 🚀 Installation
 
 See the [main repository README](https://github.com/cbrake/claude-plugins) for
 installation instructions.
 
-## Requirements
+## 📋 Requirements
 
 - Git repository (the plugin uses `git diff` to detect documentation and code
   changes).
 - `plans/` directory in your project (created automatically by the plugin).
 
-## Examples
+## 📚 Examples
 
 ### Example 1: Adding a New Feature
 
@@ -237,7 +237,7 @@ Inspect tests.
 /update-docs
 ```
 
-## Tips
+## 💡 Tips
 
 - Don't commit documentation or code changes until the feature is complete. The
   commands use `git diff` to see what is new in the documentation and code.

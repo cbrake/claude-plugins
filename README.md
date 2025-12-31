@@ -1,17 +1,17 @@
-# Claude Code Plugins
+# 🔌 Claude Code Plugins
 
 A collection of Claude Code plugins I use to enhance development workflows.
 
-## Available Plugins
+## 📦 Available Plugins
 
-### Doc-Driven Development
+### 📝 Doc-Driven Development
 
 A documentation-driven development plugin that helps you plan and implement code
 changes based on markdown documentation.
 
 [View Plugin Documentation](./doc-driven-development/README.md)
 
-## Installation
+## 🚀 Installation
 
 ### From GitHub (Recommended)
 
@@ -27,7 +27,7 @@ changes based on markdown documentation.
 /plugin install doc-driven-development@cbrake
 ```
 
-### Local Development
+### 🛠️ Local Development
 
 For local plugin development and testing, create a local marketplace:
 
@@ -39,7 +39,7 @@ For local plugin development and testing, create a local marketplace:
 /plugin install doc-driven-development@cbrake
 ```
 
-## Updating
+## 🔄 Updating
 
 To get the latest:
 
@@ -49,7 +49,7 @@ To get the latest:
 
 This appears to update all the plugins from this marketplace.
 
-## Plugin Development
+## 🏗️ Plugin Development
 
 This repository follows the standard Claude Code plugin structure:
 
@@ -61,7 +61,7 @@ plugin-name/
     └── command-name.md      # Command definitions
 ```
 
-### Key Concepts
+### 💡 Key Concepts
 
 1. **Command definitions are markdown files** - Each `.md` file in `commands/`
    becomes a slash command
@@ -71,7 +71,7 @@ plugin-name/
 
 See [CLAUDE.md](./CLAUDE.md) for detailed development guidance.
 
-## Contributing
+## 🤝 Contributing
 
 To add a new plugin to this repository:
 
@@ -81,15 +81,15 @@ To add a new plugin to this repository:
 4. Update `.claude-plugin/marketplace.json` to include your plugin
 5. Submit a pull request
 
-## Requirements
+## 📋 Requirements
 
 - Claude Code CLI
 - Git (for plugins that use git-based workflows)
 
-## License
+## 📄 License
 
 MIT
 
-## Author
+## 👤 Author
 
 Cliff Brake (cbrake@bec-systems.com)
