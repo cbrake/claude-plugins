@@ -12,7 +12,6 @@
       "name": "doc-driven-development",
       "source": "./doc-driven-development",
       "description": "Documentation-driven development workflow for planning and implementing code changes based on markdown documentation",
-      "version": "1.0.0",
       "author": {
         "name": "Cliff Brake",
         "email": "cbrake@bec-systems.com"

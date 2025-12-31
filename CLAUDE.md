@@ -23,7 +23,9 @@ doc-driven-development/
     ├── plan.md              # /plan command definition
     ├── implement.md         # /implement command definition
     ├── implement-tests.md   # /implement-tests command definition (TDD)
+    ├── execute.md           # /execute command definition
     ├── update-docs.md       # /update-docs command definition
+    ├── release.md           # /release command definition
     └── skip.md              # /skip command definition
 ```
 
@@ -56,6 +58,18 @@ The plugin implements a three-phase workflow:
 versa. When implementing, prioritize what's documented over existing code
 patterns.
 
+### Inline Instructions
+
+The `/execute` command enables surgical code changes via inline markers:
+
+- Insert `@CLAUDE:` tags in code comments or documentation with instructions or
+  pseudo code
+- Run `/execute` to find and implement all marked instructions
+- Markers are automatically removed after execution
+- Uncommitted plans are updated to reflect changes
+
+This allows precise, targeted modifications without full documentation rewrites.
+
 ## Local Plugin Development
 
 To test plugins locally during development:
@@ -81,3 +95,14 @@ To test plugins locally during development:
 Commands rely on `git diff` to detect documentation changes. The repository must
 be a git repository for the `/plan` and `/implement` commands to function
 properly.
+
+## Release Management
+
+The `/release` command automates version releases by:
+- Updating the CHANGELOG.md from `[Unreleased]` to the release version
+- Adding a new `[Unreleased]` section for future changes
+- Updating version numbers in manifest files
+- Creating a git tag
+
+**Manifest files** (updated by `/release`):
+- `.claude-plugin/plugin.json` - Plugin metadata containing `"version"` field
