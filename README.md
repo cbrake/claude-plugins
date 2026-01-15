@@ -93,3 +93,5 @@ MIT
 ## 👤 Author
 
 Cliff Brake (cbrake@bec-systems.com)
+
+If you use this, please star the repo and [let me know](https://github.com/cbrake/claude-plugins/discussions).
