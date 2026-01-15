@@ -246,3 +246,7 @@ Inspect tests.
   edit.
 - Review tests before implementing code.
 - The `plans/` directory serves as a history of your implementation decisions.
+
+## 🌟 Similar projects
+
+- https://github.com/gemini-cli-extensions/conductor
