@@ -13,3 +13,9 @@ Update `CLAUDE.md` with any architectural or technical details.
 Also, update the `CHANGELOG.md` to describe changes as benefits to the user. It
 should not include technical details of the change - that is what `git log` is
 for.
+
+A user may specify a plan file as an argument. Update this plan file by
+reviewing the codebase (git diff origin main, if needed) and confirming the most
+recent form of the code is reflected in the content of the plan file. Do not add
+excessive examples to the plan file. Do explain the rationale behind technical
+decisions that were made.
