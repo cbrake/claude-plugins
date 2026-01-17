@@ -3,6 +3,7 @@
 ## [Unreleased]
 
 ### Added
+- `/review` command for comprehensive code review using specialized parallel agents.
 - Plan tracking via `plans/plans.md` to track which plan is currently in progress.
 - `/update-docs` now updates the in-progress plan with implementation details.
 

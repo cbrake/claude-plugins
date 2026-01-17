@@ -19,14 +19,18 @@ Claude Code plugins follow a specific directory structure:
 doc-driven-development/
 ├── .claude-plugin/
 │   └── plugin.json          # Plugin metadata (name, version, description, author)
-└── commands/
-    ├── plan.md              # /plan command definition
-    ├── implement.md         # /implement command definition
-    ├── implement-tests.md   # /implement-tests command definition (TDD)
-    ├── execute.md           # /execute command definition
-    ├── update-docs.md       # /update-docs command definition
-    ├── release.md           # /release command definition
-    └── skip.md              # /skip command definition
+├── commands/
+│   ├── plan.md              # /plan command definition
+│   ├── implement.md         # /implement command definition
+│   ├── implement-tests.md   # /implement-tests command definition (TDD)
+│   ├── execute.md           # /execute command definition
+│   ├── update-docs.md       # /update-docs command definition
+│   ├── review.md            # /review command definition (multi-agent code review)
+│   ├── release.md           # /release command definition
+│   └── skip.md              # /skip command definition
+├── plans/                   # Implementation plans
+│   └── plans.md             # Plan tracking (one **IN PROGRESS** at a time)
+└── reviews/                 # Code review outputs from /review
 ```
 
 **Key architectural points:**
@@ -79,6 +83,16 @@ The `/execute` command enables surgical code changes via inline markers:
 - Uncommitted plans are updated to reflect changes
 
 This allows precise, targeted modifications without full documentation rewrites.
+
+### Code Review
+
+The `/review` command uses Claude Code's Task tool to spawn parallel review
+agents. Each agent focuses on one aspect of code quality:
+
+1. Formatting, Architecture, Documentation, Bugs, Code Clarity, Comments.
+2. Results consolidate to `reviews/<date>-<branch>.md`.
+3. Potential bugs are appended to the **IN PROGRESS** plan for human discussion.
+4. The Formatting agent auto-creates `FORMAT.md` if missing.
 
 ## Local Plugin Development
 

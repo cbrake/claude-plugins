@@ -125,6 +125,28 @@ Automates the release process by:
 The command does not automatically commit or push changes, allowing you to
 review before finalizing.
 
+### 🔍 `/review`
+
+Performs comprehensive code review on uncommitted changes using specialized
+agents. The command launches multiple parallel agents to review:
+
+- **Formatting**: Checks code formatting consistency against `FORMAT.md`
+  (auto-creates if missing).
+- **Architecture**: Verifies code follows documented architectural decisions.
+- **Documentation**: Ensures README, CHANGELOG, and plan files match code.
+- **Potential Bugs**: Identifies bugs, edge cases, and security concerns.
+- **Code Clarity**: Evaluates code design with advocate/critic perspectives.
+- **Comments**: Reviews comment quality and usefulness.
+
+Results are written to `reviews/<date>-<branch>.md`. Potential bugs are also
+appended to the **IN PROGRESS** plan for discussion during human review.
+
+**Usage:**
+
+- `/review` - Reviews all uncommitted changes.
+- `/review src/auth.ts` - Reviews only the specified file.
+- `/review bugs` - Runs only the potential bugs agent.
+
 ### ⏭️ `/skip`
 
 Tells Claude to skip the current edit or command and continue with the next
