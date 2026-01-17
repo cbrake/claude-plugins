@@ -14,7 +14,14 @@ Also, update the `CHANGELOG.md` to describe changes as benefits to the user. It
 should not include technical details of the change - that is what `git log` is
 for.
 
-Every branch should have a plan file. Git diff origin main, find the plan file,
-and confirm the most recent form of the code is reflected in the content of the
-plan file. Do not add excessive examples to the plan file. Do explain the
-rationale behind technical decisions that were made.
+## Plan File Updates
+
+Check `plans/plans.md` to find the plan marked **IN PROGRESS**. Update that plan
+file to reflect the current state of the code based on `git diff`. The plan
+should document:
+
+- What was implemented.
+- Technical decisions and their rationale.
+- Any deviations from the original plan.
+
+Do not add excessive examples to the plan file.

@@ -58,6 +58,16 @@ The plugin implements a three-phase workflow:
 versa. When implementing, prioritize what's documented over existing code
 patterns.
 
+### Plan Tracking
+
+Plans are tracked in `plans/plans.md` using a markdown table. One plan can be
+marked **IN PROGRESS** at a time:
+
+- `/plan` marks any existing in-progress plan as Completed, then adds the new
+  plan as **IN PROGRESS**.
+- `/update-docs` finds the in-progress plan and updates it with implementation
+  details.
+
 ### Inline Instructions
 
 The `/execute` command enables surgical code changes via inline markers:

@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+- Plan tracking via `plans/plans.md` to track which plan is currently in progress.
+- `/update-docs` now updates the in-progress plan with implementation details.
+
 ## [1.0.8] - 2025-12-05
 
 ### Improved
