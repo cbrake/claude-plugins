@@ -12,7 +12,7 @@ Add a `/review` command that launches multiple specialized agents to perform com
 
 Created the new `/review` command with:
 
-1. **Step 1 - Gather Context**: Instructions to run `git diff` and `git status`, find the **IN PROGRESS** plan, and check for `FORMAT.md`.
+1. **Step 1 - Gather Context**: Verifies git repository, runs `git diff HEAD` (staged + unstaged), sanitizes branch name, finds **IN PROGRESS** plan from `plans/plans.md` index, and checks for `FORMAT.md`.
 
 2. **Step 2 - Launch 6 Review Agents in Parallel**:
    - **Formatting Agent**: Checks code formatting, auto-creates `FORMAT.md` if missing
@@ -26,15 +26,13 @@ Created the new `/review` command with:
 
 4. **Step 4 - Summary Output**: Reports issue counts and highlights critical issues.
 
-5. **Arguments Support**: Filter by file path or category name.
-
 ### `plans/plans.md`
 
 Updated to mark the previous "update-plans" plan as Completed and this plan as **IN PROGRESS**.
 
 ### Documentation Updates
 
-- `README.md`: Added `/review` command section with usage examples.
+- `README.md`: Added `/review` command section.
 - `CHANGELOG.md`: Added `/review` to the Unreleased section.
 - `CLAUDE.md`: Added review.md to the plugin structure and Code Review architecture section.
 
@@ -46,19 +44,18 @@ Updated to mark the previous "update-plans" plan as Completed and this plan as *
 
 3. **Early Exit**: Command exits early if no uncommitted changes exist.
 
-4. **Follows Existing Patterns**: Command structure mirrors `execute.md` (multi-step with arguments) and `update-docs.md` (plan file updates)
+4. **Follows Existing Patterns**: Command structure mirrors `execute.md` (multi-step) and `update-docs.md` (plan file updates)
 
 ## Review Findings - Potential Bugs (2026-01-17)
 
-| Bug | Severity | Description |
-|-----|----------|-------------|
-| Missing plan fallback | High | No handling if no **IN PROGRESS** plan exists |
-| Ambiguous plan location | High | Unclear relationship between plans.md index and plan files |
-| Branch name sanitization | Medium | Branch names with `/` will fail filename creation |
-| Ambiguous arguments | Medium | Unclear handling of multiple or invalid arguments |
-| FORMAT.md race condition | Medium | Concurrent reviews could conflict |
-| Staged changes missed | Medium | `git diff` alone misses staged changes |
-| Path traversal risk | Medium | No validation of file path arguments |
-| Missing git repo check | Low | No handling if not in a git repository |
-| Undefined "significant" | Low | Agent 5 lacks definition of significant changes |
-| Directory creation errors | Low | No handling if reviews/ can't be created |
+All bugs have been fixed in `commands/review.md`:
+
+| Bug | Severity | Status |
+|-----|----------|--------|
+| Missing plan fallback | High | Fixed - suggests running `/doc-driven-development:plan` |
+| Ambiguous plan location | High | Fixed - clarifies plans.md is an index file |
+| Branch name sanitization | Medium | Fixed - sanitizes `/` to `-` |
+| FORMAT.md race condition | Medium | Fixed - double-checks before creating |
+| Staged changes missed | Medium | Fixed - uses `git diff HEAD` |
+| Missing git repo check | Low | Fixed - verifies git repo first |
+| Undefined "significant" | Low | Fixed - defines as >10 lines, new functions/logic |

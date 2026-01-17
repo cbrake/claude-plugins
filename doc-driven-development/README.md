@@ -141,12 +141,6 @@ agents. The command launches multiple parallel agents to review:
 Results are written to `reviews/<date>-<branch>.md`. Potential bugs are also
 appended to the **IN PROGRESS** plan for discussion during human review.
 
-**Usage:**
-
-- `/review` - Reviews all uncommitted changes.
-- `/review src/auth.ts` - Reviews only the specified file.
-- `/review bugs` - Runs only the potential bugs agent.
-
 ### ⏭️ `/skip`
 
 Tells Claude to skip the current edit or command and continue with the next

@@ -2,12 +2,16 @@ Perform a comprehensive code review on uncommitted changes using specialized rev
 
 ## Step 1: Gather Context
 
-Run `git diff` and `git status` to identify all uncommitted changes. Also determine:
-- The current branch name
-- The **IN PROGRESS** plan from `plans/plans.md`
+First, verify the current directory is a git repository. If not, inform the user and exit.
+
+Run `git diff HEAD` (to capture both staged and unstaged changes) and `git status` to identify all uncommitted changes. Also determine:
+- The current branch name (sanitize by replacing `/` with `-` for use in filenames)
+- The **IN PROGRESS** plan from `plans/plans.md` (this is an index file that tracks which plan is currently active)
 - Whether a `FORMAT.md` file exists in the repository root
 
 If there are no uncommitted changes, inform the user and exit.
+
+If no **IN PROGRESS** plan exists in `plans/plans.md`, inform the user and suggest running `/doc-driven-development:plan` first to create one.
 
 ## Step 2: Launch Review Agents
 
@@ -19,7 +23,7 @@ Use the Task tool to spawn the following review agents **in parallel**. Each age
 
 Instructions:
 1. Check if `FORMAT.md` exists in the repository root.
-2. If missing, analyze the codebase to identify formatting patterns (indentation, naming conventions, bracket styles, line lengths) and create `FORMAT.md` documenting these standards.
+2. If missing, analyze the codebase to identify formatting patterns (indentation, naming conventions, bracket styles, line lengths). Before creating `FORMAT.md`, check again that it doesn't exist to avoid race conditions with concurrent reviews.
 3. Review all changed code against the formatting standards.
 4. Report any formatting inconsistencies.
 
@@ -84,7 +88,7 @@ Output format:
 **Focus**: Code clarity and design decisions
 
 Instructions:
-1. For each significant code change, first justify why the code is structured this way.
+1. For each significant code change, first justify why the code is structured this way. Significant changes include: new functions/methods, modified logic flow, new classes/modules, or changes exceeding 10 lines. Exclude trivial changes like import reordering, whitespace, or simple renames.
 2. Then critically evaluate: validate the reasoning or suggest improvements with rationale.
 3. Alternate between advocate and critic perspectives until all significant code is reviewed.
 
@@ -128,9 +132,3 @@ Provide a summary to the user:
 - Location of the full review file
 - Highlight any critical issues requiring immediate attention
 - Note if FORMAT.md was auto-generated
-
-## Arguments
-
-If "$ARGUMENTS" are provided, use them to filter the review scope:
-- A file path limits review to that file
-- A category name (formatting, architecture, docs, bugs, clarity, comments) runs only that agent
