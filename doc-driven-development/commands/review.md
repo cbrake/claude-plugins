@@ -119,16 +119,30 @@ Output format:
 
 ## Step 3: Consolidate Results
 
-After all agents complete:
+After all agents complete, append all review output to the **IN PROGRESS** plan file under a `## Review (<current-date>)` heading. Include:
 
-1. Create `reviews/` directory if it doesn't exist.
-2. Create a review file at `reviews/<current-date>-<branch-name>.md` with all agent outputs, preceded by a summary.
-3. Append the "Potential Bugs" section to the **IN PROGRESS** plan file under a `## Review Findings - Potential Bugs` heading.
+1. A summary of issues found per category
+2. All agent outputs in full
+3. Highlight any critical issues requiring immediate attention
+4. Note if FORMAT.md was auto-generated
 
-## Step 4: Summary Output
+## Step 4: Commit Decision
 
-Provide a summary to the user:
-- Number of issues found per category
-- Location of the full review file
-- Highlight any critical issues requiring immediate attention
-- Note if FORMAT.md was auto-generated
+Ask the user how they want to handle committing changes:
+
+1. **Auto-commit** - Create a commit with a summary of the review findings
+2. **Manual** - Let the user commit manually
+3. **Skip** - Don't commit yet
+
+If auto-commit is selected, create a commit with a message summarizing what was implemented and key review findings.
+
+## Step 5: Completion Decision
+
+After handling the commit decision:
+
+1. Display a summary of what was implemented vs what remains in the plan
+2. Ask the user if the plan should be:
+   - **Completed** - Mark the plan as Completed in `plans/plans.md` (implementation is done)
+   - **Continue** - Keep the plan as **IN PROGRESS** for further iteration
+
+If Completed is selected, update `plans/plans.md` to change the plan status from **IN PROGRESS** to Completed.

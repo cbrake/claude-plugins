@@ -31,4 +31,23 @@ Added instructions for `/update-docs` to:
 - **Simple markdown table**: No complex state management. The tracking file is human-readable and editable.
 - **Bold marker for status**: Using `**IN PROGRESS**` makes the active plan visually distinct.
 - **Single in-progress plan**: Enforcing one active plan prevents scope confusion during development.
-- **Auto-complete on new plan**: When `/plan` runs, any existing **IN PROGRESS** plan is marked Completed. This assumes the previous plan was implemented before starting a new one.
+- **Paused status**: When `/plan` runs, any existing **IN PROGRESS** plan is marked **Paused** (not Completed). This preserves work-in-progress context. Users can resume a paused plan by editing `plans/plans.md` to mark it IN PROGRESS again.
+- **Manual completion**: Plans are only marked Completed when the user explicitly decides the work is done (via `/review` completion flow), not automatically when starting a new plan.
+
+## Enhancement: Paused Status (2026-01-17)
+
+Added **Paused** as a valid plan status to improve the plan lifecycle:
+
+### Changes Made
+
+1. **`commands/plan.md`**: Changed behavior from marking old plans as "Completed" to "**Paused**"
+2. **`plans/plans.md` format**: Now supports three statuses: **IN PROGRESS**, **Paused**, Completed
+
+### Rationale
+
+Auto-completing plans when starting a new one was problematic because:
+- Previous work might not actually be complete
+- Context was lost when resuming interrupted work
+- No way to distinguish "done" from "paused for later"
+
+The Paused status preserves the ability to resume work later while clearly indicating the plan is not actively being worked on.

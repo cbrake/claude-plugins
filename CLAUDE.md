@@ -28,9 +28,8 @@ doc-driven-development/
 │   ├── review.md            # /review command definition (multi-agent code review)
 │   ├── release.md           # /release command definition
 │   └── skip.md              # /skip command definition
-├── plans/                   # Implementation plans
-│   └── plans.md             # Plan tracking (one **IN PROGRESS** at a time)
-└── reviews/                 # Code review outputs from /review
+└── plans/                   # Implementation plans
+    └── plans.md             # Plan tracking (one **IN PROGRESS** at a time)
 ```
 
 **Key architectural points:**
@@ -65,10 +64,16 @@ patterns.
 ### Plan Tracking
 
 Plans are tracked in `plans/plans.md` using a markdown table. One plan can be
-marked **IN PROGRESS** at a time:
+marked **IN PROGRESS** at a time. Valid statuses are:
 
-- `/plan` marks any existing in-progress plan as Completed, then adds the new
+- **IN PROGRESS** - Currently active plan
+- **Paused** - Interrupted when a new plan started (can be resumed)
+- Completed - Fully implemented and reviewed
+
+Status transitions:
+- `/plan` marks any existing in-progress plan as **Paused**, then adds the new
   plan as **IN PROGRESS**.
+- `/review` prompts user to mark plan as Completed when implementation is done.
 - `/update-docs` finds the in-progress plan and updates it with implementation
   details.
 
@@ -90,9 +95,10 @@ The `/review` command uses Claude Code's Task tool to spawn parallel review
 agents. Each agent focuses on one aspect of code quality:
 
 1. Formatting, Architecture, Documentation, Bugs, Code Clarity, Comments.
-2. Results consolidate to `reviews/<date>-<branch>.md`.
-3. Potential bugs are appended to the **IN PROGRESS** plan for human discussion.
-4. The Formatting agent auto-creates `FORMAT.md` if missing.
+2. Results are appended to the **IN PROGRESS** plan file under `## Review (<date>)`.
+3. After review, prompts for commit decision (auto-commit, manual, skip).
+4. Then prompts for completion decision (mark Completed or continue iterating).
+5. The Formatting agent auto-creates `FORMAT.md` if missing.
 
 ## Local Plugin Development
 

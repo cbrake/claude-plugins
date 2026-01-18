@@ -19,7 +19,7 @@ documentation driven development.
 After the plan is finalized, update `plans/plans.md`:
 
 1. If `plans/plans.md` does not exist, create it with a table header.
-2. Change any existing **IN PROGRESS** plan to Completed.
+2. Change any existing **IN PROGRESS** plan to **Paused**.
 3. Add the new plan marked as **IN PROGRESS**.
 
 The `plans/plans.md` file uses this format:
@@ -30,5 +30,6 @@ The `plans/plans.md` file uses this format:
 | Plan | Status |
 |------|--------|
 | 2026-01-17-new-feature.md | **IN PROGRESS** |
+| 2026-01-16-paused-feature.md | **Paused** |
 | 2026-01-15-old-feature.md | Completed |
 ```
