@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [1.0.9] - 2026-01-20
+
 ### Added
 - `/review` command for multi-agent code review.
 - Plan tracking via `plans/plans.md` with one active plan at a time.
