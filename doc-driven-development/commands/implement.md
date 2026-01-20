@@ -29,6 +29,7 @@ For each implementation unit:
    - `fix:` for bug fixes
    - `refactor:` for code restructuring
    - `docs:` for documentation changes
+   - Commits should be done in the developer's name, never Claude's.
 4. Capture the commit hash using `git rev-parse --short HEAD`.
 5. Add the commit to the plan file's `## Commits` section.
 
@@ -42,6 +43,8 @@ The `## Commits` section in the plan file uses this format:
 | abc1234 | feat: add user authentication module | Implemented|
 | def5678 | feat: add login form component |Not Implemented|
 ```
+
+Commits should be done in the developer's name, never Claude's.
 
 ## Step 4: Finalize
 

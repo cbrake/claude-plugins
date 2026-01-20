@@ -1,5 +1,4 @@
-Check for the starting hash of the **IN PROGRESS** command in `plans/plans.md`. Update any relevant documentation to accurately reflect the current code changes
-(`git diff`) and fill in any missing information. Some guidelines:
+Update any relevant documentation to accurately reflect the code changes since the starting hash for this plan recorded in the `plans/plans.md` file. Some guidelines:
 
 - Be concise. AI tends to generate very verbose/wordy documentation. Don't do
   that.
@@ -16,9 +15,8 @@ for.
 
 ## Plan File Updates
 
-Check `plans/plans.md` to find the plan marked **IN PROGRESS**. Update that plan
-file to reflect the current state of the code based on `git diff`. The plan
-should document:
+Review all changes since the starting hash for this plan recorded in the `plans/plans.md` file and make sure the plan accurately reflects these changes.
+The plan should document:
 
 - What was implemented.
 - Technical decisions and their rationale.
