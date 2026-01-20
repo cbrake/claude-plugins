@@ -148,6 +148,18 @@ heading. After the review, the command prompts for:
 1. **Commit decision**: Auto-commit, manual, or skip
 2. **Completion decision**: Mark plan as Completed or continue iterating
 
+### 🔁 `/cycle`
+
+Runs the complete TDD implementation cycle in one command:
+
+1. `/implement-tests` - Write tests first
+2. `/implement` - Implement code to pass the tests
+3. `/update-docs` - Update documentation
+4. `/review` - Perform code review
+
+Use this when you want to execute the full workflow without running each command
+individually.
+
 ### ⏭️ `/skip`
 
 Tells Claude to skip the current edit or command and continue with the next
@@ -160,18 +172,14 @@ The typical doc-driven workflow:
 1. **📝 Update documentation** - Describe desired functionality in Markdown files.
 2. **📋 Create a plan** - Run `/plan <feature-name>`.
 3. **👀 Inspect plan**.
-4. **🧪 Implement tests first** - Run `/implement-tests` to create tests based on
-   documentation.
-5. **🔴 Run tests** - Verify tests fail as expected.
-6. **👀 Inspect tests**.
-7. **🔨 Implement code** - Run `/implement` to implement the actual functionality.
+4. **🔁 Run the cycle** - Run `/cycle` to execute the full TDD workflow
+   (tests → implement → update-docs → review).
+   - _Alternative_: Run each step individually with `/implement-tests`,
+     `/implement`, `/update-docs`, and `/review`.
    - _Alternative_: For quick, targeted changes, add `@CLAUDE:` markers in code
      and run `/execute` instead.
-8. **🟢 Verify** - Ensure all tests pass.
-9. **📄 Make sure docs match code** - Run `/update-docs` to make sure the docs are
-   complete and match the code that was implemented.
-10. **🏷️ Release** - Run `/release` to create a versioned release with updated
-    changelog and git tag.
+5. **🏷️ Release** - Run `/release` to create a versioned release with updated
+   changelog and git tag.
 
 ## 🚀 Installation
 
