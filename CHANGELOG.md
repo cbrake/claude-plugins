@@ -3,19 +3,15 @@
 ## [Unreleased]
 
 ### Added
-- `/review` command for comprehensive code review using specialized parallel agents.
-- Plan tracking via `plans/plans.md` to track which plan is currently in progress.
-- `/update-docs` now updates the in-progress plan with implementation details.
-- **Paused** status for plans - when starting a new plan, existing IN PROGRESS plans are paused instead of auto-completed.
-- Commit decision flow in `/review` - choose auto-commit, manual, or skip.
-- Completion decision flow in `/review` - mark plan as Completed or continue iterating.
-- "Started At" column in `plans/plans.md` to record the commit hash when a plan is created.
-- Commit tracking in plan files - `/implement` and `/implement-tests` now create logical git commits and record them in a `## Commits` section.
+- `/review` command for multi-agent code review.
+- Plan tracking via `plans/plans.md` with one active plan at a time.
+- **Paused** status for plans interrupted by starting a new plan.
+- Starting commit hash recorded when creating plans for easier diff review.
+- Automatic commit tracking in plan files during `/implement` and `/implement-tests`.
 
 ### Changed
-- `/implement` now finds the IN PROGRESS plan, breaks implementation into logical units, and creates granular commits using conventional commit format.
-- `/implement-tests` now follows the same pattern for test implementation with `test:` prefixed commits.
-- `/review` now appends results to the IN PROGRESS plan file instead of creating separate files in `reviews/` directory.
+- `/implement` and `/implement-tests` now create granular commits per logical unit.
+- `/review` appends results directly to the active plan file.
 
 ## [1.0.8] - 2025-12-05
 
