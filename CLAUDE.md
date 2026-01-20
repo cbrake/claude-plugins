@@ -63,19 +63,45 @@ patterns.
 
 ### Plan Tracking
 
-Plans are tracked in `plans/plans.md` using a markdown table. One plan can be
-marked **IN PROGRESS** at a time. Valid statuses are:
+Plans are tracked in `plans/plans.md` using a markdown table with three columns:
 
+```markdown
+| Plan | Status | Started At |
+|------|--------|------------|
+| 2026-01-17-feature.md | **IN PROGRESS** | abc1234 |
+```
+
+The "Started At" column records the commit hash when the plan was created,
+providing a reference point for reviewing all implementation changes.
+
+Valid statuses:
 - **IN PROGRESS** - Currently active plan
 - **Paused** - Interrupted when a new plan started (can be resumed)
 - Completed - Fully implemented and reviewed
 
 Status transitions:
 - `/plan` marks any existing in-progress plan as **Paused**, then adds the new
-  plan as **IN PROGRESS**.
+  plan as **IN PROGRESS** with the current commit hash.
 - `/review` prompts user to mark plan as Completed when implementation is done.
 - `/update-docs` finds the in-progress plan and updates it with implementation
   details.
+
+### Commit Tracking
+
+Individual plan files track implementation commits in a `## Commits` section:
+
+```markdown
+## Commits
+
+| Hash | Description |
+|------|-------------|
+| abc1234 | feat: add authentication module |
+| def5678 | test: add authentication tests |
+```
+
+`/implement` and `/implement-tests` automatically create granular commits and
+record them in the plan file. Commits use conventional commit format (`feat:`,
+`fix:`, `test:`, `docs:`, `refactor:`).
 
 ### Inline Instructions
 

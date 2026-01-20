@@ -36,17 +36,18 @@ description. The command will:
 5. Generate a detailed implementation plan
 6. Write the plan to the plan file
 7. Update `plans/plans.md`: mark any previous **IN PROGRESS** plan as **Paused**,
-   then add the new plan as **IN PROGRESS**
+   then add the new plan as **IN PROGRESS** with the starting commit hash
 
 ### 🧪 `/implement-tests`
 
-Implements tests for features described in the documentation and plans directory
-using Test-Driven Development (TDD). This command:
+Implements tests for the **IN PROGRESS** plan using Test-Driven Development
+(TDD), creating logical git commits for each test unit. The command:
 
-- Analyzes documentation changes from `git diff` of `*.md` files.
-- Reviews plans in the `plans/` directory.
-- Creates tests **before** implementing the actual code.
-- Follows TDD principles where tests drive the implementation.
+1. Finds the **IN PROGRESS** plan from `plans/plans.md`
+2. Breaks tests into logical units (by function, component, test suite)
+3. For each unit: writes tests, commits using `test:` prefix, and records the
+   commit hash in the plan file's `## Commits` section
+4. Keeps the plan status as **IN PROGRESS** (tests alone don't complete a plan)
 
 Use this command when you want to follow a strict TDD workflow where tests are
 written first based on the documented requirements.
@@ -90,13 +91,16 @@ refactoring specific functions, or implementing small improvements.
 
 ### 🔨 `/implement`
 
-Implements code changes based on:
+Implements code changes for the **IN PROGRESS** plan, creating logical git
+commits for each unit of work. The command:
 
-- Documentation changes shown in `git diff` of `*.md` files
-- Plans in the `plans/` directory
+1. Finds the **IN PROGRESS** plan from `plans/plans.md`
+2. Breaks the implementation into logical units (by function, component, task)
+3. For each unit: implements, commits using conventional commit format, and
+   records the commit hash in the plan file's `## Commits` section
+4. Updates the plan status to `Implemented`
 
-The command reads all documentation updates and systematically implements the
-corresponding code changes.
+Conventional commit prefixes: `feat:`, `fix:`, `refactor:`, `docs:`
 
 ### 📄 `/update-docs`
 
@@ -276,7 +280,17 @@ Inspect tests.
 
 ## 📊 Plan Status Lifecycle
 
-Plans in `plans/plans.md` can have three statuses:
+Plans in `plans/plans.md` are tracked with three columns:
+
+```markdown
+| Plan | Status | Started At |
+|------|--------|------------|
+| 2026-01-17-feature.md | **IN PROGRESS** | abc1234 |
+```
+
+The "Started At" column records the commit hash when the plan was created.
+
+### Valid Statuses
 
 - **IN PROGRESS** - The currently active plan being worked on (only one at a time)
 - **Paused** - A plan that was interrupted when a new plan started (can be resumed)
@@ -289,6 +303,22 @@ Plans in `plans/plans.md` can have three statuses:
 | `/plan` with existing IN PROGRESS | Old plan → **Paused**, new plan → **IN PROGRESS** |
 | `/review` → user marks complete | Current plan → Completed |
 | Manual edit to plans.md | Resume a **Paused** plan by changing to **IN PROGRESS** |
+
+### Commit Tracking
+
+Individual plan files track implementation commits in a `## Commits` section:
+
+```markdown
+## Commits
+
+| Hash | Description |
+|------|-------------|
+| abc1234 | feat: add authentication module |
+| def5678 | test: add authentication tests |
+```
+
+`/implement` and `/implement-tests` automatically create granular commits and
+record them in the plan file.
 
 ### Review Integration
 
