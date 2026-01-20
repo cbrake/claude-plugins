@@ -2,6 +2,17 @@
 
 ## [Unreleased]
 
+### Added
+- `/review` command for multi-agent code review.
+- Plan tracking via `plans/plans.md` with one active plan at a time.
+- **Paused** status for plans interrupted by starting a new plan.
+- Starting commit hash recorded when creating plans for easier diff review.
+- Automatic commit tracking in plan files during `/implement` and `/implement-tests`.
+
+### Changed
+- `/implement` and `/implement-tests` now create granular commits per logical unit.
+- `/review` appends results directly to the active plan file.
+
 ## [1.0.8] - 2025-12-05
 
 ### Improved

@@ -1,5 +1,4 @@
-Update any relevant documentation to accurately reflect the current code changes
-(`git diff`) and fill in any missing information. Some guidelines:
+Update any relevant documentation to accurately reflect the code changes since the starting hash for this plan recorded in the `plans/plans.md` file. Some guidelines:
 
 - Be concise. AI tends to generate very verbose/wordy documentation. Don't do
   that.
@@ -13,3 +12,14 @@ Update `CLAUDE.md` with any architectural or technical details.
 Also, update the `CHANGELOG.md` to describe changes as benefits to the user. It
 should not include technical details of the change - that is what `git log` is
 for.
+
+## Plan File Updates
+
+Review all changes since the starting hash for this plan recorded in the `plans/plans.md` file and make sure the plan accurately reflects these changes.
+The plan should document:
+
+- What was implemented.
+- Technical decisions and their rationale.
+- Any deviations from the original plan.
+
+Do not add excessive examples to the plan file.

@@ -19,14 +19,17 @@ Claude Code plugins follow a specific directory structure:
 doc-driven-development/
 ├── .claude-plugin/
 │   └── plugin.json          # Plugin metadata (name, version, description, author)
-└── commands/
-    ├── plan.md              # /plan command definition
-    ├── implement.md         # /implement command definition
-    ├── implement-tests.md   # /implement-tests command definition (TDD)
-    ├── execute.md           # /execute command definition
-    ├── update-docs.md       # /update-docs command definition
-    ├── release.md           # /release command definition
-    └── skip.md              # /skip command definition
+├── commands/
+│   ├── plan.md              # /plan command definition
+│   ├── implement.md         # /implement command definition
+│   ├── implement-tests.md   # /implement-tests command definition (TDD)
+│   ├── execute.md           # /execute command definition
+│   ├── update-docs.md       # /update-docs command definition
+│   ├── review.md            # /review command definition (multi-agent code review)
+│   ├── release.md           # /release command definition
+│   └── skip.md              # /skip command definition
+└── plans/                   # Implementation plans
+    └── plans.md             # Plan tracking (one **IN PROGRESS** at a time)
 ```
 
 **Key architectural points:**
@@ -58,6 +61,48 @@ The plugin implements a three-phase workflow:
 versa. When implementing, prioritize what's documented over existing code
 patterns.
 
+### Plan Tracking
+
+Plans are tracked in `plans/plans.md` using a markdown table with three columns:
+
+```markdown
+| Plan | Status | Started At |
+|------|--------|------------|
+| 2026-01-17-feature.md | **IN PROGRESS** | abc1234 |
+```
+
+The "Started At" column records the commit hash when the plan was created,
+providing a reference point for reviewing all implementation changes.
+
+Valid statuses:
+- **IN PROGRESS** - Currently active plan
+- **Paused** - Interrupted when a new plan started (can be resumed)
+- Completed - Fully implemented and reviewed
+
+Status transitions:
+- `/plan` marks any existing in-progress plan as **Paused**, then adds the new
+  plan as **IN PROGRESS** with the current commit hash.
+- `/review` prompts user to mark plan as Completed when implementation is done.
+- `/update-docs` finds the in-progress plan and updates it with implementation
+  details.
+
+### Commit Tracking
+
+Individual plan files track implementation commits in a `## Commits` section:
+
+```markdown
+## Commits
+
+| Hash | Description |
+|------|-------------|
+| abc1234 | feat: add authentication module |
+| def5678 | test: add authentication tests |
+```
+
+`/implement` and `/implement-tests` automatically create granular commits and
+record them in the plan file. Commits use conventional commit format (`feat:`,
+`fix:`, `test:`, `docs:`, `refactor:`).
+
 ### Inline Instructions
 
 The `/execute` command enables surgical code changes via inline markers:
@@ -69,6 +114,17 @@ The `/execute` command enables surgical code changes via inline markers:
 - Uncommitted plans are updated to reflect changes
 
 This allows precise, targeted modifications without full documentation rewrites.
+
+### Code Review
+
+The `/review` command uses Claude Code's Task tool to spawn parallel review
+agents. Each agent focuses on one aspect of code quality:
+
+1. Formatting, Architecture, Documentation, Bugs, Code Clarity, Comments.
+2. Results are appended to the **IN PROGRESS** plan file under `## Review (<date>)`.
+3. After review, prompts for commit decision (auto-commit, manual, skip).
+4. Then prompts for completion decision (mark Completed or continue iterating).
+5. The Formatting agent auto-creates `FORMAT.md` if missing.
 
 ## Local Plugin Development
 
