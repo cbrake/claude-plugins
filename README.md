@@ -95,4 +95,5 @@ MIT
 - [@cbrake](https://github.com/cbrake)
 - [@jsnapoli1](https://github.com/jsnapoli1)
 
-If you use this, please star the repo and [let me know](https://github.com/cbrake/claude-plugins/discussions).
+If you use this, please star the repo and
+[let us know](https://github.com/cbrake/claude-plugins/discussions).
