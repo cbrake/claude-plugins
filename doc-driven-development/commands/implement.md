@@ -16,6 +16,8 @@ should be:
 - A cohesive set of related changes
 - Small enough to understand in one commit
 
+Create a table in the **IN PROGRESS** plan file that tracks these logical units, what has or has not been implemented, and the hash if it has been implemented, so that you can see what needs to be done.
+
 ## Step 3: Implement and Commit Each Unit
 
 For each implementation unit:
@@ -35,10 +37,10 @@ The `## Commits` section in the plan file uses this format:
 ```markdown
 ## Commits
 
-| Hash | Description |
-|------|-------------|
-| abc1234 | feat: add user authentication module |
-| def5678 | feat: add login form component |
+| Hash | Description | Status |
+|------|-------------|--------|
+| abc1234 | feat: add user authentication module | Implemented|
+| def5678 | feat: add login form component |Not Implemented|
 ```
 
 ## Step 4: Finalize

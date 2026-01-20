@@ -1,4 +1,4 @@
-Update any relevant documentation to accurately reflect the current code changes
+Check for the starting hash of the **IN PROGRESS** command in `plans/plans.md`. Update any relevant documentation to accurately reflect the current code changes
 (`git diff`) and fill in any missing information. Some guidelines:
 
 - Be concise. AI tends to generate very verbose/wordy documentation. Don't do

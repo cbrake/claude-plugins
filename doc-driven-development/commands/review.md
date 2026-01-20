@@ -4,12 +4,7 @@ Perform a comprehensive code review on uncommitted changes using specialized rev
 
 First, verify the current directory is a git repository. If not, inform the user and exit.
 
-Run `git diff HEAD` (to capture both staged and unstaged changes) and `git status` to identify all uncommitted changes. Also determine:
-- The current branch name (sanitize by replacing `/` with `-` for use in filenames)
-- The **IN PROGRESS** plan from `plans/plans.md` (this is an index file that tracks which plan is currently active)
-- Whether a `FORMAT.md` file exists in the repository root
-
-If there are no uncommitted changes, inform the user and exit.
+Check `plans/plans.md` to find the **IN PROGRESS** file, and get it starting commit hash. Run git diff on this hash to see what has changed since this hash. Also check whether a `FORMAT.md` file exists in the repository root.
 
 If no **IN PROGRESS** plan exists in `plans/plans.md`, inform the user and suggest running `/doc-driven-development:plan` first to create one.
 
@@ -58,7 +53,8 @@ Instructions:
 1. Compare code changes to README.md, CHANGELOG.md, and the **IN PROGRESS** plan file.
 2. Identify any code functionality not reflected in documentation.
 3. Identify any documentation claims not supported by the code.
-4. Note missing or outdated documentation.
+4. Identify any features marked as implemented that are not implemented.
+5. Identify any inconsistent, contradictory, or outdated documentation
 
 Output format:
 ```
@@ -128,13 +124,7 @@ After all agents complete, append all review output to the **IN PROGRESS** plan 
 
 ## Step 4: Commit Decision
 
-Ask the user how they want to handle committing changes:
-
-1. **Auto-commit** - Create a commit with a summary of the review findings
-2. **Manual** - Let the user commit manually
-3. **Skip** - Don't commit yet
-
-If auto-commit is selected, create a commit with a message summarizing what was implemented and key review findings.
+Create a commit and auto-commit with a message summarizing what was implemented and key review findings.
 
 ## Step 5: Completion Decision
 

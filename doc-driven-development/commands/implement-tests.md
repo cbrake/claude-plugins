@@ -7,13 +7,16 @@ each unit of work.
 2. If no plan is in progress, inform the user and suggest running `/plan` first.
 3. Read the plan file to understand what tests are needed.
 
-## Step 2: Plan Test Units
+## Step 2: Plan Implementation Units
 
-Analyze the plan and break tests into logical units. Each unit should be:
+Analyze the plan and break the implementation into logical units. Each unit
+should be:
 
-- Tests for a single function, method, or component
-- A cohesive test suite for related functionality
+- A single function, method, or component
+- A cohesive set of related changes
 - Small enough to understand in one commit
+
+Create or edit a commit table in the **IN PROGRESS** plan file that tracks these logical units, what has or has not been implemented, and the hash if it has been implemented, so that you can see what needs to be done.
 
 ## Step 3: Implement and Commit Each Unit
 
@@ -32,10 +35,10 @@ The `## Commits` section in the plan file uses this format:
 ```markdown
 ## Commits
 
-| Hash | Description |
-|------|-------------|
-| abc1234 | test: add authentication module tests |
-| def5678 | test: add login form component tests |
+| Hash | Description | Status |
+|------|-------------|--------|
+| abc1234 | test: user authentication module | Implemented|
+| def5678 | test: login form component |Not Implemented|
 ```
 
 ## Step 4: Finalize

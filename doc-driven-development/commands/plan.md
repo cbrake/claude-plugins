@@ -1,7 +1,7 @@
 Create a plan file named `plans/<current date>-"$ARGUMENTS".md`. Replace spaces
 with '-' in the filename.
 
-If a plan already exists that has not be committed, then update that plan.
+If a plan exists in `plans/plans.md` that is marked **IN PROGRESS** then ask the user if they would like to update that plan or start a new one.
 
 Then switch to plan mode and create a plan for coding the current changes and
 untracked files (start with `git diff` and `git status`) described in the
@@ -23,19 +23,20 @@ After the plan is finalized, update `plans/plans.md`:
 3. Change any existing **IN PROGRESS** plan to **Paused**.
 4. Add the new plan marked as **IN PROGRESS** with the commit hash in the
    "Started At" column.
+5. Commit the plan to git
 
 The `plans/plans.md` file uses this format:
 
 ```markdown
 # Plans
 
-| Plan | Status | Started At |
+| Plan | Status | Branched From |
 |------|--------|------------|
 | 2026-01-17-new-feature.md | **IN PROGRESS** | abc1234 |
 | 2026-01-16-paused-feature.md | **Paused** | def5678 |
 | 2026-01-15-old-feature.md | Completed | 9012345 |
 ```
 
-The "Started At" column records the commit hash from `git rev-parse --short HEAD`
+The "Branched From" column records the commit hash from `git rev-parse --short HEAD`
 when the plan was created. This provides a reference point for reviewing all
 changes made during implementation.
