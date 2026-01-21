@@ -35,8 +35,9 @@ description. The command will:
 4. Review `README.md` and other documentation files
 5. Generate a detailed implementation plan
 6. Write the plan to the plan file
-7. Update `plans/plans.md`: mark any previous **IN PROGRESS** plan as **Paused**,
-   then add the new plan as **IN PROGRESS** with the starting commit hash
+7. Update `plans/plans.md`: mark any previous **IN PROGRESS** plan as
+   **Paused**, then add the new plan as **IN PROGRESS** with the starting commit
+   hash
 
 ### 🧪 `/implement-tests`
 
@@ -142,8 +143,8 @@ agents. The command launches multiple parallel agents to review:
 - **Code Clarity**: Evaluates code design with advocate/critic perspectives.
 - **Comments**: Reviews comment quality and usefulness.
 
-Results are appended to the **IN PROGRESS** plan file under a `## Review (<date>)`
-heading. After the review, the command prompts for:
+Results are appended to the **IN PROGRESS** plan file under a
+`## Review (<date>)` heading. After the review, the command prompts for:
 
 1. **Commit decision**: Auto-commit, manual, or skip
 2. **Completion decision**: Mark plan as Completed or continue iterating
@@ -169,11 +170,12 @@ task. Useful when you want to bypass a suggested change.
 
 The typical doc-driven workflow:
 
-1. **📝 Update documentation** - Describe desired functionality in Markdown files.
+1. **📝 Update documentation** - Describe desired functionality in Markdown
+   files.
 2. **📋 Create a plan** - Run `/plan <feature-name>`.
 3. **👀 Inspect plan**.
-4. **🔁 Run the cycle** - Run `/cycle` to execute the full TDD workflow
-   (tests → implement → update-docs → review).
+4. **🔁 Run the cycle** - Run `/cycle` to execute the full TDD workflow (tests →
+   implement → update-docs → review).
    - _Alternative_: Run each step individually with `/implement-tests`,
      `/implement`, `/update-docs`, and `/review`.
    - _Alternative_: For quick, targeted changes, add `@CLAUDE:` markers in code
@@ -272,6 +274,57 @@ Inspect tests.
 /update-docs
 ```
 
+## 📊 Plan Status Lifecycle
+
+Plans in `plans/plans.md` are tracked with three columns:
+
+```markdown
+| Plan                  | Status          | Started At |
+| --------------------- | --------------- | ---------- |
+| 2026-01-17-feature.md | **IN PROGRESS** | abc1234    |
+```
+
+The "Started At" column records the commit hash when the plan was created.
+
+### Valid Statuses
+
+- **IN PROGRESS** - The currently active plan being worked on (only one at a
+  time)
+- **Paused** - A plan that was interrupted when a new plan started (can be
+  resumed)
+- **Completed** - A plan that has been fully implemented and reviewed
+
+### Status Transitions
+
+| Action                            | Effect                                                  |
+| --------------------------------- | ------------------------------------------------------- |
+| `/plan` with existing IN PROGRESS | Old plan → **Paused**, new plan → **IN PROGRESS**       |
+| `/review` → user marks complete   | Current plan → Completed                                |
+| Manual edit to plans.md           | Resume a **Paused** plan by changing to **IN PROGRESS** |
+
+### Commit Tracking
+
+Individual plan files track implementation commits in a `## Commits` section:
+
+```markdown
+## Commits
+
+| Hash    | Description                     |
+| ------- | ------------------------------- |
+| abc1234 | feat: add authentication module |
+| def5678 | test: add authentication tests  |
+```
+
+`/implement` and `/implement-tests` automatically create granular commits and
+record them in the plan file.
+
+### Review Integration
+
+The `/review` command appends all review findings directly to the **IN
+PROGRESS** plan file under a `## Review (<date>)` section. This keeps all
+information about a feature in one place - no need to cross-reference separate
+review files.
+
 ## 💡 Tips
 
 - Don't commit documentation or code changes until the feature is complete. The
@@ -285,49 +338,4 @@ Inspect tests.
 ## 🌟 Similar projects
 
 - https://github.com/gemini-cli-extensions/conductor
-
-## 📊 Plan Status Lifecycle
-
-Plans in `plans/plans.md` are tracked with three columns:
-
-```markdown
-| Plan | Status | Started At |
-|------|--------|------------|
-| 2026-01-17-feature.md | **IN PROGRESS** | abc1234 |
-```
-
-The "Started At" column records the commit hash when the plan was created.
-
-### Valid Statuses
-
-- **IN PROGRESS** - The currently active plan being worked on (only one at a time)
-- **Paused** - A plan that was interrupted when a new plan started (can be resumed)
-- **Completed** - A plan that has been fully implemented and reviewed
-
-### Status Transitions
-
-| Action | Effect |
-|--------|--------|
-| `/plan` with existing IN PROGRESS | Old plan → **Paused**, new plan → **IN PROGRESS** |
-| `/review` → user marks complete | Current plan → Completed |
-| Manual edit to plans.md | Resume a **Paused** plan by changing to **IN PROGRESS** |
-
-### Commit Tracking
-
-Individual plan files track implementation commits in a `## Commits` section:
-
-```markdown
-## Commits
-
-| Hash | Description |
-|------|-------------|
-| abc1234 | feat: add authentication module |
-| def5678 | test: add authentication tests |
-```
-
-`/implement` and `/implement-tests` automatically create granular commits and
-record them in the plan file.
-
-### Review Integration
-
-The `/review` command appends all review findings directly to the **IN PROGRESS** plan file under a `## Review (<date>)` section. This keeps all information about a feature in one place - no need to cross-reference separate review files.
+- https://github.com/EveryInc/compound-engineering-plugin
