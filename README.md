@@ -1,4 +1,4 @@
-# This plug has moved to:
+# This plugin has moved to:
 
 https://github.com/tmpdir-org/tmpdir-claude-code-marketplace
 
