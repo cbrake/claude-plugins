@@ -1,3 +1,8 @@
+**This plug has moved to:
+
+https://github.com/tmpdir-org/tmpdir-claude-code-marketplace
+**
+
 # 🔌 Claude Code Plugins
 
 A collection of Claude Code plugins I use to enhance development workflows.
